@@ -1,0 +1,14 @@
+int main(void) {
+  int num1, num2 = 10;
+  printf("정수입력: \n");
+  scanf("%d", &num1);
+
+  if (num1 > num2) {
+    printf("num1이 num2보다 큽니다. \n");
+    printf("%d > %d \n", num1, num2);
+  } else {
+    printf("num1이 num2보다 크지 않습니다. \n");
+    printf("%d <= %d \n", num1, num2);
+  }
+  return 0;
+}
