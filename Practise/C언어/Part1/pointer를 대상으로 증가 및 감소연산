@@ -1,0 +1,22 @@
+#include <stdio.h>
+    
+    int main(void) {
+    
+    int arr[3] = {11, 22, 33};
+    int *ptr = arr;
+
+    //해당 주소를 sizeof(type)만큼 증가시킨 후 해당 위치의 값을 출력한다.
+    printf("%d %d %d \n", *ptr, *(ptr + 1), *(ptr + 2));
+    
+    printf("%d \n", *ptr);
+    ptr++;
+    printf("%d \n", *ptr);
+    ptr++;
+    printf("%d \n", *ptr);
+    ptr--;
+    printf("%d \n", *ptr);
+    ptr--;
+    printf("%d \n", *ptr); printf("\n");
+    
+      return 0;
+    }
