@@ -1,0 +1,10 @@
+[front] -> HTML -> CSS -> Javascript
+[Back] -> DB먼저 X -> 서버 먼저 시작->
+Flask, Django -> 유저정보저장이 필요
+없는 서비스를 먼져 제작 -> 다음으로
+DB를 서버에 묶어야 할 때 PostgreSQL
+-> SQL = ORM -> MySQL -> MongoDB
+
+스프링(자바, 스프링, 스프링부트)
+도커(도커, 쿠버네티스,  리눅스 AWS EC2 RDS VPC, IAM, S3) 
+프론트엔드(리액트, 제이쿼리, HTML, CSS, JS) 
