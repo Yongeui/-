@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+// 함수 원형 (prototype) 선언
+void fct(int *ptr);
+
+int main(void) {
+  int age = 20;
+  fct(&age);         // 함수 호출
+  printf("%d", age); // 21 출력
+  return 0;
+}
+
+// 함수 정의
+void fct(int *ptr) { *ptr += 1; }
+
+//컴파일 시 순차적 처리, 코드의 가독성
