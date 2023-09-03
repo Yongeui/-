@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+/* put sting 함수는 + \n 개행을 진행하지만 fput sting
+함수는 개행을 진행하지 않는다. */
+int puts(const char *s);
+int fputs(const char *s, FILE *stream);
+
+int main(void) {
+  char *str = "Simple String";
+
+  printf("1. puts test ------ \n");
+  puts(str);
+  puts("So Simple String");
+
+  printf("2. puts test ------ \n");
+  /*fputs함수를 이용하였기 때문에 모니터에 출력하기 위해
+  stdout인자를 두번째 인자로 전달해 주었다. (fputs 함수는
+  두 번째 인자를 통해서 출력의 대상을 지정할 수 있다.) */
+  fputs(str, stdout);
+  printf("\n");
+  fputs("So Simple String", stdout);
+  printf("\n");
+
+  printf("3. end of main ------ ");
+
+  return 0;
+}
