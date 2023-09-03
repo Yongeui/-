@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main(void) {
+  char str[7];
+  int i;
+
+  for (i = 0; i < 3; i++) {
+    fgets(str, sizeof(str), stdin);
+    /*scanf함수는 공백문자를 기준으로 문자를 종료하지만
+    stdin함수는 공백문자를 포함하여 문자열을 출력한다.*/
+    printf("Read %d : %s \n", i + 1, str);
+  }
+  return 0;
+}
