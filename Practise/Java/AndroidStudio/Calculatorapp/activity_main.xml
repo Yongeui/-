@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,58 +12,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="숫자1" />
+        android:hint="@string/hint_number1"
+        android:inputType="numberDecimal"
+        android:autofillHints="no"/>
 
     <EditText
         android:id="@+id/Edit2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="숫자2" />
+        android:hint="@string/hint_number2"
+        android:inputType="numberDecimal"
+        android:autofillHints="no" />
 
     <Button
         android:id="@+id/BtnAdd"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="10dp"
-        android:text="더하기"/>
+        android:text="@string/add"/>
 
     <Button
         android:id="@+id/BtnSub"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="10dp"
-        android:text="빼기"/>
+        android:text="@string/subtract"/>
 
     <Button
         android:id="@+id/BtnMul"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="10dp"
-        android:text="곱하기"/>
+        android:text="@string/multiply"/>
 
     <Button
         android:id="@+id/BtnDiv"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="10dp"
-        android:text="나누기"/>
+        android:text="@string/divide"/>
 
     <Button
         android:id="@+id/BtnMod"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="10dp"
-        android:text="나머지 값"/>
+        android:text="@string/modulo"/>
 
 
     <TextView
         android:id="@+id/TextResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textColor="#FF0000"
         android:layout_margin="10dp"
-        android:text="계산 결과 : " />
+        android:text="@string/calculation_result" />
 
 </LinearLayout>
