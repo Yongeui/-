@@ -15,6 +15,13 @@ public class MainActivity extends AppCompatActivity {
     TextView textResult;
     String num1, num2;
     Double resultDouble;
+    private String formatResult(double result) {
+        if (result == (int) result) {
+            return String.valueOf((int) result); // 결과가 정수이면 소수점 제거
+        } else {
+            return String.valueOf(result); // 결과가 소수이면 소수점을 포함하여 반환
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 resultDouble = Double.parseDouble(num1) + Double.parseDouble(num2);
-                textResult.setText("계산 결과 : " + resultDouble);
+                textResult.setText("계산 결과 : " + formatResult(resultDouble));
             }
         });
 
@@ -62,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 resultDouble = Double.parseDouble(num1) - Double.parseDouble(num2);
-                textResult.setText("계산 결과 : " + resultDouble);
+                textResult.setText("계산 결과 : " + formatResult(resultDouble);
             }
         });
 
@@ -76,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 resultDouble = Double.parseDouble(num1) * Double.parseDouble(num2);
-                textResult.setText("계산 결과 : " + resultDouble);
+                textResult.setText("계산 결과 : " + formatResult(resultDouble));
             }
         });
 
@@ -96,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 resultDouble = Double.parseDouble(num1) / divisor;
-                textResult.setText("계산 결과 : " + resultDouble);
+                textResult.setText("계산 결과 : " + formatResult(resultDouble));
             }
         });
 
@@ -116,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 resultDouble = Double.parseDouble(num1) % divisor;
-                textResult.setText("계산 결과 : " + resultDouble);
+                textResult.setText("계산 결과 : " + formatResult(resultDouble));
             }
         });
     }
