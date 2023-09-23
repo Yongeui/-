@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 resultDouble = Double.parseDouble(num1) - Double.parseDouble(num2);
-                textResult.setText("계산 결과 : " + formatResult(resultDouble);
+                textResult.setText("계산 결과 : " + formatResult(resultDouble));
             }
         });
 
