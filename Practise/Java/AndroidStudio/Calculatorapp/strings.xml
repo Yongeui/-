@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MPHW4-2</string>
+    <string name="hint_number1">숫자1</string>
+    <string name="hint_number2">숫자2</string>
+    <string name="add">더하기</string>
+    <string name="subtract">빼기</string>
+    <string name="multiply">곱하기</string>
+    <string name="divide">나누기</string>
+    <string name="modulo">나머지 값</string>
+    <string name="calculation_result">계산 결과 :</string>
+    <string name="calculation_template">계산 결과 : %s</string>
+    <string name="calculation_output">계산 결과 : %s</string>
+    <string name="enter_values_error">값을 입력해주세요.</string>
+    <string name="divide_by_zero_error">0으로 나눌 수 없습니다.</string>
+
+</resources>
