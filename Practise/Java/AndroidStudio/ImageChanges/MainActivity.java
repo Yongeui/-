@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.File;
-//import java.util.Arrays; //배열에 대한 import 추가.
+import java.util.Arrays; //배열에 대한 import 추가.
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,11 +19,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle(R.string.image_viewer_title); // Using string resource for title
+        setTitle(R.string.image_viewer_title);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
-            getSupportActionBar().setIcon(R.drawable.s12); // Assuming you have an icon named s12 in drawable
+            getSupportActionBar().setIcon(R.drawable.s12);
         }
 
         Button btnPrev = findViewById(R.id.btnPrev);
@@ -31,13 +31,11 @@ public class MainActivity extends AppCompatActivity {
         myPicture = findViewById(R.id.myPictureView1);
         tvNumber = findViewById(R.id.tvNumber);
 
-        File imagesDir = getFilesDir(); // Using the internal storage directory
+        File imagesDir = getFilesDir();
         imageFiles = imagesDir.listFiles(file -> file.isFile() && file.getName().endsWith(".png"));
 
         if (imageFiles != null && imageFiles.length > 0) {
-            /* Arrays.sort(imageFiles, (file1, file2) -> file1.getName().compareTo(file2.getName()));
-            displayImage(curNum);
-        } */ //Arrays.sort 메소드를 사용하여 파일 배열을 파일 이름 순으로 정렬. 
+            Arrays.sort(imageFiles); // 파일 이름 순으로 정렬
             displayImage(curNum);
         } else {
             tvNumber.setText(R.string.no_images);
