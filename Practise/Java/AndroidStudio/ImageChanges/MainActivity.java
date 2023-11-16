@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.File;
+//import java.util.Arrays; //배열에 대한 import 추가.
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,9 +35,12 @@ public class MainActivity extends AppCompatActivity {
         imageFiles = imagesDir.listFiles(file -> file.isFile() && file.getName().endsWith(".png"));
 
         if (imageFiles != null && imageFiles.length > 0) {
-            displayImage(curNum); // Display the first image
+            /* Arrays.sort(imageFiles, (file1, file2) -> file1.getName().compareTo(file2.getName()));
+            displayImage(curNum);
+        } */ //Arrays.sort 메소드를 사용하여 파일 배열을 파일 이름 순으로 정렬. 
+            displayImage(curNum);
         } else {
-            tvNumber.setText(R.string.no_images); // Using string resource for no images text
+            tvNumber.setText(R.string.no_images);
         }
 
         btnPrev.setOnClickListener(v -> {
