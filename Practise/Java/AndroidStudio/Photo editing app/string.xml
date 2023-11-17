@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Your App Name</string>
+    <string name="desc_zoom_in">Zoom in</string>
+    <string name="desc_zoom_out">Zoom out</string>
+    <string name="desc_rotate">Rotate</string>
+    <string name="desc_bright">Increase brightness</string>
+    <string name="desc_dark">Decrease brightness</string>
+    <string name="desc_gray">Convert to grayscale</string>
+</resources>
