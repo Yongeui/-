@@ -6,4 +6,6 @@
     <string name="desc_bright">Increase brightness</string>
     <string name="desc_dark">Decrease brightness</string>
     <string name="desc_gray">Convert to grayscale</string>
+    <string name="desc_blur">Toggle blur effect</string>
+    <string name="desc_emboss">Toggle emboss effect</string>
 </resources>
