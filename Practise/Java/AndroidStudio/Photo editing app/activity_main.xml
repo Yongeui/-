@@ -53,8 +53,22 @@
             android:layout_height="wrap_content"
             android:src="@drawable/gray"
             android:contentDescription="@string/desc_gray" />
-    </LinearLayout>
 
+        <ImageButton
+            android:id="@+id/ibBlur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/blur"
+            android:contentDescription="@string/desc_blur" />
+
+        <ImageButton
+            android:id="@+id/ibEmboss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/emboss"
+            android:contentDescription="@string/desc_emboss" />
+
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/pictureLayout"
         android:layout_width="fill_parent"
