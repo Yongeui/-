@@ -1,0 +1,123 @@
+/* login.css */
+
+/* 히어로 섹션 스타일링 */
+.hero-section {
+    position: relative;
+    background: url('image/main_image1.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* jumbotron 스타일링 */
+.jumbotron {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px; /* jumbotron 너비 조정 */
+}
+
+/* 섹션 스타일 */
+.sec1, .sec2, .sec3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* 세로 레이아웃으로 .sec1 조정 */
+.sec1 {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 아이디 및 비밀번호 입력 필드 스타일 */
+.sec1 input[type="text"], .sec1 input[type="password"] {
+    font-family: Verdana, sans-serif;
+    font-size: 12px;
+    line-height: 31px;
+    padding: 10px;
+    margin-bottom: 10px; /* 입력 필드 사이 공간 추가 */
+    width: 100%;
+    height: 36px;
+    border: 1px solid #d0d0d0;
+    color: #979d9d;
+}
+
+/* 로그인 버튼 스타일 */
+.sec1 button[type="submit"] {
+    padding: 22px 20px; /* 두 입력 필드 높이에 맞춰 패딩 조정 */
+    background-color: #ab3e55;
+    color: white;
+    font-family: Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    height: 92px; /* 조정된 높이 */
+}
+
+/* 체크박스 그룹 스타일 */
+.sec2 {
+    align-items: center;
+}
+
+/* 체크박스 스타일 */
+.sec2 .checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.sec2 .checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* 라벨 스타일 */
+.sec2 .checkbox-group label {
+    margin-bottom: 0; /* 라벨이 정확하게 정렬되도록 함 */
+}
+
+/* 추가 링크 버튼 스타일 */
+.sec3 .additional-links {
+    margin-top: 20px;
+}
+
+/* 추가 링크 버튼 스타일 */
+.sec3 .additional-links a {
+    text-decoration: none;
+    padding: 10px 15px;
+    background: #666666;
+    color: #ffffff;
+    font-family: Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+}
+
+.sec3 .additional-links a#find-id,
+.sec3 .additional-links a#find-password {
+    background: #fff;
+    color: #3e3d3c;
+    border: 1px solid #cccccc;
+}
+
+/* 반응형 조정 */
+@media (max-width: 576px) {
+    .sec1 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .sec1 input[type="text"], .sec1 input[type="password"], .sec1 button[type="submit"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
