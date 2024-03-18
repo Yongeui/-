@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+
+#define SIZE 10000
+
+int comparisons = 0;
+
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void heapify(int arr[], int n, int i) {
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+
+    if (left < n && arr[left] > arr[largest]) {
+        largest = left;
+        comparisons++;
+    }
+
+    if (right < n && arr[right] > arr[largest]) {
+        largest = right;
+        comparisons++;
+    }
+
+    if (largest != i) {
+        swap(&arr[i], &arr[largest]);
+        heapify(arr, n, largest);
+    }
+}
+
+void heapSort(int arr[], int n) {
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+
+    for (int i = n - 1; i >= 0; i--) {
+        swap(&arr[0], &arr[i]);
+        heapify(arr, i, 0);
+    }
+}
+
+void generateRandomNumbers(int* arr, int n) {
+    for (int i = 0; i < n; i++) {
+        arr[i] = rand();
+    }
+}
+
+int main() {
+    int arr[SIZE];
+    srand((unsigned int)time(NULL));
+
+    for (int i = 0; i < 10; i++) {
+        generateRandomNumbers(arr, SIZE);
+        comparisons = 0;
+        clock_t start = clock();
+        heapSort(arr, SIZE);
+        clock_t end = clock();
+
+        double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
+        printf("정렬 %d: 수행시간: %lf 초, 비교횟수: %d, 추정 시간 복잡도: O(n log n)\n",
+            i + 1, time_spent, comparisons);
+    }
+
+    return 0;
+}
