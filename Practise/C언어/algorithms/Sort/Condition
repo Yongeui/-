@@ -1,0 +1,7 @@
+Random Number를 생성하여 서로 다른 데이터에 대해 Sorting 프로그램을
+
+10번 수행한 결과를 출력하시오.
+
+Insertion sort, Quick sort, Merge sort, Heapsort
+
+n^2 or n log n
