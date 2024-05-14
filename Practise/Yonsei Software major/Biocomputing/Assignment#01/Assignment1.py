@@ -1,5 +1,3 @@
-#2021245151 정용의
-
 import sys
 
 def reverse_compensation(seq):
