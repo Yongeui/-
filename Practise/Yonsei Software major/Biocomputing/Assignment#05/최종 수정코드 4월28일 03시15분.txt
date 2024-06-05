@@ -1,0 +1,128 @@
+import sys
+import time
+
+def Fasta_format(fasta_file):
+    sequences = []
+    try:
+        with open(fasta_file, 'r') as file:
+            buffer = ""
+            start_reading = False
+            while True:
+                line = file.readline()
+                if not line:
+                    if buffer:
+                        sequences.append(buffer)
+                    break
+                if line.startswith(">"):
+                    if start_reading:
+                        sequences.append(buffer)
+                        buffer = ""
+                    start_reading = True
+                elif start_reading:
+                    for char in line.strip():
+                        if char.isalpha():
+                            buffer += char.upper()
+
+            if buffer:
+                sequences.append(buffer)
+        
+        if not start_reading:
+            print("파일에 적절한 내용이 없습니다.")
+            sys.exit(1)
+        
+        if len(sequences) < 2:
+            print("필요한 시퀀스 수가 충분하지 않습니다.")
+            sys.exit(1)
+
+    except FileNotFoundError:
+        print("입력 파일을 찾을 수 없습니다.")
+        sys.exit(1)
+    except Exception as e:
+        print(f"파일을 읽는 중 오류 발생: {e}")
+        sys.exit(1)
+
+    return sequences
+
+def Inspection_ATCG(sequences):
+    valid_sequences = []
+    for index, seq in enumerate(sequences):
+        if index > 1:
+            break
+        valid = True
+        for char in seq:
+            if char not in "ATCG":
+                valid = False
+                break
+        if not valid:
+            print("No DNA sequence")
+            sys.exit(1)
+        valid_sequences.append(seq)
+    return valid_sequences
+
+def Dynamic_program(seq1, seq2, match=2, mismatch=-2, gap=-1):
+    m, n = len(seq1), len(seq2)
+    score_matrix = [[0] * (n + 1) for _ in range(m + 1)]
+    max_score = 0
+    max_pos = (0, 0)
+
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            scores = [
+                score_matrix[i - 1][j - 1] + (match if seq1[i - 1] == seq2[j - 1] else mismatch),
+                score_matrix[i - 1][j] + gap,
+                score_matrix[i][j - 1] + gap,
+                0
+            ]
+            score_matrix[i][j] = max(scores)
+            if score_matrix[i][j] > max_score:
+                max_score = score_matrix[i][j]
+                max_pos = (i, j)
+
+    Output_alignment01, Output_alignment02 = "", ""
+    i, j = max_pos
+    while i > 0 and j > 0:
+        current_score = score_matrix[i][j]
+        if current_score == 0:
+            break
+        elif current_score == score_matrix[i - 1][j - 1] + (match if seq1[i - 1] == seq2[j - 1] else mismatch):
+            Output_alignment01 = seq1[i - 1] + Output_alignment01
+            Output_alignment02 = seq2[j - 1] + Output_alignment02
+            i -= 1
+            j -= 1
+        elif current_score == score_matrix[i - 1][j] + gap:
+            Output_alignment01 = seq1[i - 1] + Output_alignment01
+            Output_alignment02 = "-" + Output_alignment02
+            i -= 1
+        else:
+            Output_alignment01 = "-" + Output_alignment01
+            Output_alignment02 = seq2[j - 1] + Output_alignment02
+            j -= 1
+
+    return Output_alignment01, Output_alignment02, max_score
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("입출력 파일을 확인하세요.")
+        sys.exit(1)
+    
+    start_time = time.time()
+    
+    input_file_name = sys.argv[1]
+    output_file_name = sys.argv[2]
+
+    sequences = Fasta_format(input_file_name)
+    if len(sequences) < 2:
+        print("DNA 시퀀스가 부족합니다.")
+        sys.exit(1)
+
+    seq1, seq2 = Inspection_ATCG(sequences)
+
+    Output_alignment01, Output_alignment02, score = Dynamic_program(seq1, seq2)
+    elapsed_time_in_microsecond = (time.time() - start_time) * 1e6
+    elapsed_time_in_second = elapsed_time_in_microsecond / 1e6
+
+    with open(output_file_name, 'w') as file:
+        file.write(f"{Output_alignment01}\n{Output_alignment02}\n")
+
+    print(f"A 스코어: {score}")
+    print(f"실행 시간: {elapsed_time_in_microsecond:.0f} microsecond ({elapsed_time_in_second:.6f} 초)")
