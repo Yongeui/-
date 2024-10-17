@@ -1,15 +1,3 @@
-#2021245151 정용의
-
-"""
-DNA sequence에서 특정 segment가 연속하여 반복되는 것을 "repeat"이라하는데 이것을 찾는 것을 목표로한다.
-segment의 사이즈는 길이2~4인 세그먼트가 최소 2번 이상 반복되는 경우를 repeat segment라 정의.
-ex: AGCATCGATCGAGGC라면 ATCG라는 길이4의 세그먼트가 총 2번 ATCGATCG 반복된 것이다. 그렇다면 이 ATCGATCG가 하나의 Repeat segment인 것. 이 segment가
-가장 길다면 해당 segment를 outputFile에 출력하도록 한다. 만약 동일한 길이 ATAT 혹은 TATA라는 repeat segment가 나왔다면 둘 중에 먼저 나온 repeat segment를
-outputFile에 출력하도록 한다. 
-★ Reapeat segment를 찾는데 걸리는 시간을 >elapsed time microsecnd<로 축정하여 CMD창에 출력할 것. + Time.Time()
-★ ATCG라는 DNA sequence를 제외한 화이트스페이스, 기호가 sequence에 껴있다면 "No correct foramt"을 출력 (추가)
-"""
-
 import sys
 import time
 
