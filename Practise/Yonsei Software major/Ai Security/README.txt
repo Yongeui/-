@@ -1,3 +1,6 @@
+NIDS 사용 데이터셋UNSW_NB15.csv
+(training-set.csv, test-set.csv)
+
 !pip install pandas numpy scikit-learn torch joblib matplotlib seaborn
 
 위 라이브러리 중 설치되어있지 않는 것은 별도로 설치해야합니다 귀찮으시면 그냥 위에꺼
