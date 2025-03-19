@@ -1,4 +1,4 @@
-#Train_code #2021245151 정용의
+#Train_code
 
 import os
 import numpy as np
